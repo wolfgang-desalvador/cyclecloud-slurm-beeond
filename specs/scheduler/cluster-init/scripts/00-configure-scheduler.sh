@@ -1,3 +1,4 @@
+#!/bin/bash
 ### Code from MS TechCommunity https://techcommunity.microsoft.com/t5/azure-compute-blog/automate-beeond-filesystem-on-azure-cyclecloud-slurm-cluster/ba-p/3625544
 
 # Download Prolog/Epilog scripts to /sched
