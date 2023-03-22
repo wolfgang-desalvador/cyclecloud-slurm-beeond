@@ -3,12 +3,15 @@
 
 set -x
 
+
+logdir="/sched/log"
+logfile=$logdir/slurm_epilog.log
+
+exec &>> $logfile
+
 if [ "$(sudo /opt/cycle/jetpack/bin/jetpack config slurm.hpc)" == "True" ]; then
   nodefile=/shared/home/$SLURM_JOB_USER/nodefile-$SLURM_JOB_ID
   if [ -e $nodefile ] ; then
-
-    logdir="/sched/log"
-    logfile=$logdir/slurm_epilog.log
 
     # Workaround Beeond stop umount issue
     ! mount | grep beeond || sudo umount -l /mnt/beeond

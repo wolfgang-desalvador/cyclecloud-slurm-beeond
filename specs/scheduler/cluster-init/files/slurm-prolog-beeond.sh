@@ -6,6 +6,8 @@ set -x
 logdir="/sched/log"
 logfile=$logdir/slurm_prolog.log
 
+exec &>> $logfile
+
 ! mount | grep beeond || exit 0
 
 if [ "$(sudo /opt/cycle/jetpack/bin/jetpack config slurm.hpc)" == "True" ]; then
