@@ -6,7 +6,8 @@ set -x
 
 logdir="/sched/log"
 logfile=$logdir/slurm_epilog.log
-exec 1>$logfile 2>&1
+
+exec &>> $logfile
 
 if [ "$(sudo /opt/cycle/jetpack/bin/jetpack config slurm.hpc)" == "True" ]; then
   nodefile=/shared/home/$SLURM_JOB_USER/nodefile-$SLURM_JOB_ID
