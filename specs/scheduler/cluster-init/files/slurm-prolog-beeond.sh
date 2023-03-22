@@ -5,8 +5,7 @@ set -x
 
 logdir="/sched/log"
 logfile=$logdir/slurm_prolog.log
-
-exec &>> $logfile
+exec 1>$logfile 2>&1
 
 ! mount | grep beeond || exit 0
 
